@@ -1,0 +1,60 @@
+<?php
+
+namespace migrations;
+
+use classes\server\Database;
+use Exception;
+use models\AdminModel;
+
+class InventoryMigrations
+{
+    private object $pdo;
+
+    public function __construct() {
+        $database = new Database();
+        $this->pdo = $database->getPdo();
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function createTable(): string
+    {
+        $stmt = $this->pdo->prepare("CREATE TABLE `inventory` (
+  `item_id` int(11) NOT NULL,
+  `origin_country` varchar(100) NOT NULL,
+  `age` int(30) NOT NULL,
+  `estimated_value` int(50) NOT NULL,
+  `acquired_date` varchar(20) NOT NULL,
+  `location_room` int(10) NOT NULL,
+  `maintenance_status` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
+
+        if (!$stmt->execute()) {
+            throw new Exception("Failed to create inventory table.");
+        }
+        return "Successfully created inventory table.";
+    }
+
+    public function alterKeys(): string {
+        $stmt = $this->pdo->prepare("ALTER TABLE `inventory`
+  ADD PRIMARY KEY (`item_id`);");
+
+        if (!$stmt->execute()) {
+            throw new Exception("Failed to alter the inventory table and make the item_id the primary key.");
+        }
+
+        return "Successfully altered the primary key.";
+    }
+
+    public function alterAutoIncrement(): string {
+        $stmt = $this->pdo->prepare("ALTER TABLE `inventory`
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT;");
+
+        if (!$stmt->execute()) {
+            throw new Exception("Failed to alter the inventory table and make the item_id auto incrementing");
+        }
+
+        return "Successfully altered the inventory table.";
+    }
+}
