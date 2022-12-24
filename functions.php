@@ -50,3 +50,22 @@ function isLoggedIn(): bool {
 
     return true;
 }
+
+function getList($option): array {
+
+    switch ($option) {
+        case "maintenance":
+            return ["Great", "Ok", "Broken"];
+        case "items":
+            return ["Granite", "Crown", "Bones", "Statue", "Jeweled Necklace", "Silverware", "Fancy Plate", "Arrow Head",
+                "Fabric", "Coin", "Old Coin", "Pot", "Tea Pot"];
+        case "positions":
+            return ["Janitor", "Maintainer", "Painter", "Receptionist", "Scientist", "Tour Guide"];
+        case "payment_types":
+            return ["Paid", "Pending", "Refund"];
+        case "payment_categories":
+            return ["Gift Shop", "Contracts", "Assets"];
+        case "payment_methods":
+            return ["Card", "Cash", "Cheque"];
+    }
+}

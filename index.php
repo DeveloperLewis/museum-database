@@ -17,6 +17,20 @@ $router->notFound(function () {
     require_once('views/404.php');
 });
 
+$router->get('/seed', function () {
+    $invMig = new \migrations\InventoryMigrations();
+    $staffMig = new \migrations\StaffMigrations();
+    $tranMig = new \migrations\TransactionsMigrations();
+    $visMig = new \migrations\VisitorsMigrations();
+    $mainMig = new \migrations\MaintenanceMigrations();
+
+    $invMig->seed(60);
+    $staffMig->seed(20);
+    $tranMig->seed(50);
+    $visMig->seed(30);
+    $mainMig->seed(25);
+});
+
 //Routing Files
 require_once('routes/user.php');
 require_once('routes/admin.php');

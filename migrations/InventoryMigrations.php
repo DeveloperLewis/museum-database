@@ -5,6 +5,7 @@ namespace migrations;
 use classes\server\Database;
 use Exception;
 use models\AdminModel;
+use models\InventoryModel;
 
 class InventoryMigrations
 {
@@ -22,6 +23,7 @@ class InventoryMigrations
     {
         $stmt = $this->pdo->prepare("CREATE TABLE `inventory` (
   `item_id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL, 
   `origin_country` varchar(100) NOT NULL,
   `age` int(30) NOT NULL,
   `estimated_value` int(50) NOT NULL,
@@ -56,5 +58,19 @@ class InventoryMigrations
         }
 
         return "Successfully altered the inventory table.";
+    }
+
+    public function seed($amount): void {
+        $invModel = new InventoryModel();
+        $faker = \Faker\Factory::create();
+
+        $items = getList("items");
+        $maintenance = getList("maintenance");
+
+        for ($i = 0; $i < $amount; $i++) {
+            $invModel->create($items[$faker->randomKey($items)], $faker->country(), rand(18, 60),
+                rand(50,5000),$faker->date(),rand(1,10), $maintenance[$faker->randomKey($maintenance)]);
+            $invModel->store();
+        }
     }
 }

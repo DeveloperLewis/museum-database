@@ -5,6 +5,9 @@ namespace migrations;
 use classes\server\Database;
 use Exception;
 use models\AdminModel;
+use models\InventoryModel;
+use models\MaintenanceModel;
+use models\StaffModel;
 
 class MaintenanceMigrations
 {
@@ -54,5 +57,19 @@ class MaintenanceMigrations
         }
 
         return "Successfully altered the maintenance table.";
+    }
+
+    public function seed($amount): void {
+        $maintenanceModel = new MaintenanceModel();
+        $staffModel = new StaffModel();
+        $inventoryModel = new InventoryModel();
+        $faker = \Faker\Factory::create();
+
+        $maintenance = getList("maintenance");
+        $maintainers = $staffModel->getMaintainersById();
+        for ($i = 0; $i < $amount; $i++) {
+            $maintenanceModel->create($maintainers[$faker->randomKey($maintainers)]["staff_id"], rand(0, $inventoryModel->total()), $maintenance[$faker->randomKey($maintenance)], $faker->date());
+            $maintenanceModel->store();
+        }
     }
 }

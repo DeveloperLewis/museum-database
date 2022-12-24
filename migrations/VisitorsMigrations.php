@@ -5,6 +5,7 @@ namespace migrations;
 use classes\server\Database;
 use Exception;
 use models\AdminModel;
+use models\VisitorModel;
 
 class VisitorsMigrations
 {
@@ -53,5 +54,20 @@ class VisitorsMigrations
         }
 
         return "Successfully altered the visitors table.";
+    }
+
+    public function seed($amount): void {
+        $visitorModel = new VisitorModel();
+        $faker = \Faker\Factory::create();
+
+        for ($i = 0; $i < $amount; $i++) {
+            $entryDate = $faker->date();
+            $minTime = rand(36000, 57600);
+            $entryTime = date('H:i:s', $minTime);
+            $exitTime = date('H:i:s', rand($minTime, 61200));
+
+            $visitorModel->create($entryDate . " " . $entryTime, $entryDate . " " . $exitTime);
+            $visitorModel->store();
+        }
     }
 }

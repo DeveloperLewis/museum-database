@@ -11,7 +11,7 @@ class StaffModel
     public string $first_name;
     public string $last_name;
     public string $address;
-    public int $contact_number;
+    public string $contact_number;
     public string $position;
     public int $salary;
     public string $employment_date;
@@ -39,6 +39,17 @@ class StaffModel
         };
 
         return "Successfully stored a staff member in the database";
+    }
+
+    public function getMaintainersById(): array {
+        $database = new Database();
+        $stmt = $database->getPdo()->prepare("SELECT staff_id FROM staff WHERE position = 'maintainer'");
+
+        if (!$stmt->execute()) {
+            throw new Exception("Unable to return maintainers in the staff table");
+        }
+
+        return $stmt->fetchAll();
     }
     
 }

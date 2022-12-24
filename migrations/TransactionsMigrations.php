@@ -5,6 +5,7 @@ namespace migrations;
 use classes\server\Database;
 use Exception;
 use models\AdminModel;
+use models\TransactionModel;
 
 class TransactionsMigrations
 {
@@ -55,5 +56,21 @@ class TransactionsMigrations
         }
 
         return "Successfully altered the transaction table.";
+    }
+
+    public function seed($amount): void {
+        $transactionModel = new TransactionModel();
+        $faker = \Faker\Factory::create();
+
+        $payment_types = getList("payment_types");
+        $payment_categories = getList("payment_categories");
+        $payment_methods = getList("payment_methods");
+
+        for ($i = 0; $i < $amount; $i++) {
+            $transactionModel->create($payment_types[$faker->randomKey($payment_types)],
+            $payment_categories[$faker->randomKey($payment_categories)], $payment_methods[$faker->randomKey($payment_methods)],
+                rand(20,5000), $faker->date());
+            $transactionModel->store();
+        }
     }
 }

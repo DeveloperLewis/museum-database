@@ -5,6 +5,7 @@ namespace migrations;
 use classes\server\Database;
 use Exception;
 use models\AdminModel;
+use models\StaffModel;
 
 class StaffMigrations
 {
@@ -25,7 +26,7 @@ class StaffMigrations
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `address` varchar(300) NOT NULL,
-  `contact_number` int(20) NOT NULL,
+  `contact_number` varchar(50) NOT NULL,
   `position` varchar(50) NOT NULL,
   `salary` int(30) NOT NULL,
   `employment_date` varchar(20) NOT NULL
@@ -57,5 +58,18 @@ class StaffMigrations
         }
 
         return "Successfully altered the staff table.";
+    }
+
+    public function seed($amount): void {
+        $staffModel = new StaffModel();
+        $faker = \Faker\Factory::create();
+
+        $positions = getList("positions");
+
+        for ($i = 0; $i < $amount; $i++) {
+            $staffModel->create($faker->firstName(), $faker->lastName(), $faker->address(), $faker->phoneNumber(),
+                $positions[$faker->randomKey($positions)], rand(18000,40000), $faker->date());
+            $staffModel->store();
+        }
     }
 }
