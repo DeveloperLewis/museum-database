@@ -19,6 +19,7 @@ $router->notFound(function () {
 
 //Routing Files
 require_once('routes/user.php');
+require_once('routes/admin.php');
 
 
 $router->run();

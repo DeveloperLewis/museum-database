@@ -35,14 +35,19 @@ try {
 }
 
 //Admin Starter Account
-$adminModel = new \models\AdminModel();
-$adminModel->create($env->admin_username, $env->admin_password, dateAndTime());
+$authenticate = new \classes\authentication\User();
+if ($authenticate->isUsernameUnique($env->admin_username)) {
+    $adminModel = new \models\AdminModel();
+    $adminModel->create($env->admin_username, $env->admin_password, dateAndTime());
 
-try {
-    $adminModel->store();
-} catch (Exception $e) {
-    error_log($e);
+    try {
+        $adminModel->store();
+    } catch (Exception $e) {
+        error_log($e);
+    }
 }
+
+
 
 //Inventory Table
 $inventory_migrations = new \migrations\InventoryMigrations();

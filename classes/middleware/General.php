@@ -24,13 +24,11 @@ class General
     }
 
     public function authenticateUser(): void {
-        //Start session before authentication.
-        session_start();
         //Check for session hijacking
         $this->verifySession();
         //Check if session is still available
         if (!isLoggedIn()) {
-            redirect("/hello");
+            redirect("/");
         }
     }
 }
