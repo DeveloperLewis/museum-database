@@ -106,7 +106,7 @@ $controller->post(function() use ($controller) {
     $maintenanceModel->create($staff_id, $item_id, $description, dateAndTime());
     $maintenanceModel->store();
 
-    $_SESSION['success'] = "Successfully added a new member to the database.";
+    $_SESSION['success'] = "Successfully added a new maintenance log to the database.";
 
     redirect('/maintenance?id=' . $item_id);
 });

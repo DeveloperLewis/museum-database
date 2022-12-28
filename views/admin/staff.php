@@ -15,6 +15,10 @@
             <h2>Staff Members</h2>
         </div>
 
+        <?php
+            showSuccess($vars['success'] ?? null);
+        ?>
+
         <div class="card-body">
             <div class="row">
 
