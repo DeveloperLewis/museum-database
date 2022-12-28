@@ -57,15 +57,6 @@
     </div>
 </div>
 
-<?php
-if (isloggedIn()) {
-    echo '<p class="text-center text-white">';
-    echo 'You are logged in, ';
-    echo  $vars["username"] ?? "";
-    echo '</p>';
-}
-?>
-
 <style>
     .hero-image {
         background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('/public/imgs/hero.jpg');

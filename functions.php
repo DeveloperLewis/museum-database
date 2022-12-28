@@ -52,7 +52,6 @@ function isLoggedIn(): bool {
 }
 
 function getList($option): array {
-
     switch ($option) {
         case "maintenance":
             return ["Great", "Ok", "Broken"];
@@ -68,4 +67,10 @@ function getList($option): array {
         case "payment_methods":
             return ["Card", "Cash", "Cheque"];
     }
+}
+
+function printArray($array): void {
+    echo "<pre>";
+        print_r($array);
+    echo "</pre>";
 }

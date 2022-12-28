@@ -34,6 +34,7 @@ $router->get('/seed', function () {
 //Routing Files
 require_once('routes/user.php');
 require_once('routes/admin.php');
+require_once('routes/inventory.php');
 
 
 $router->run();
