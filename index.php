@@ -28,7 +28,7 @@ $router->get('/seed', function () {
     $staffMig->seed(20);
     $tranMig->seed(50);
     $visMig->seed(30);
-    $mainMig->seed(25);
+    $mainMig->seed(60);
 });
 
 //Routing Files

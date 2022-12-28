@@ -33,5 +33,20 @@ class MaintenanceModel
 
         return "Successfully stored a maintenance log in the database";
     }
+
+    public function getByItemIdDsc($item_id): array|string {
+        $database = new Database();
+        $stmt = $database->getPdo()->prepare("SELECT * FROM maintenance WHERE item_id = ? ORDER BY maintenance_id DESC");
+
+        if (!$stmt->execute([$item_id])) {
+            throw new Exception("Failed to execute statement");
+        }
+
+        if (!$maintenance_array = $stmt->fetchAll()) {
+            return  "No maintenance logs were found for this item.";
+        }
+
+        return $maintenance_array;
+    }
     
 }

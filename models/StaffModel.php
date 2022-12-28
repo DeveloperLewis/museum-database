@@ -51,5 +51,20 @@ class StaffModel
 
         return $stmt->fetchAll();
     }
+
+    public function getAllDsc(): array {
+        $database = new Database();
+        $stmt = $database->getPdo()->prepare("SELECT * FROM staff ORDER BY staff_id DESC");
+
+        if (!$stmt->execute()) {
+            throw new Exception("Failed to execute statement");
+        }
+
+        if (!$staff_array = $stmt->fetchAll()) {
+            throw new Exception(("Failed to fetch inventory array"));
+        }
+
+        return $staff_array;
+    }
     
 }

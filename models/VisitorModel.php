@@ -30,5 +30,20 @@ class VisitorModel
 
         return "Successfully stored a new visitor in the database";
     }
+
+    public function getAllDsc(): array {
+        $database = new Database();
+        $stmt = $database->getPdo()->prepare("SELECT * FROM visitors ORDER BY visitor_id DESC");
+
+        if (!$stmt->execute()) {
+            throw new Exception("Failed to execute statement");
+        }
+
+        if (!$visitors_array = $stmt->fetchAll()) {
+            throw new Exception(("Failed to fetch inventory array"));
+        }
+
+        return $visitors_array;
+    }
     
 }

@@ -21,3 +21,8 @@ $router->get('/visitors', function () use ($middleware) {
     $middleware->authenticateUser();
     require_once('controllers/admin/visitors.php');
 });
+
+$router->get('/maintenance', function () use ($middleware) {
+    $middleware->authenticateUser();
+    require_once('controllers/admin/maintenance.php');
+});

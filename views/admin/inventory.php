@@ -61,6 +61,8 @@
                                     <th scope="col" class="lato-strong">Acquired Date</th>
                                     <th scope="col" class="lato-strong">Location Room</th>
                                     <th scope="col" class="lato-strong">Maintenance Status</th>
+                                    <th scope="col" class="lato-strong">Repair</th>
+                                    <th scope="col" class="lato-strong">Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -79,6 +81,13 @@
                                         echo "<td>" . $items["acquired_date"] . "</td>";
                                         echo "<td>" . $items["location_room"] . "</td>";
                                         echo "<td>" . $items["maintenance_status"] . "</td>";
+
+                                        //Maintenance Logs Button
+                                        echo '<form action="/maintenance" method="get">';
+                                        echo '<input type="hidden" value="' . $items['item_id'] .'" name="id">';
+                                        echo '<td><button class="btn btn-success" type="submit">Logs</button></td>';
+                                        echo '</form>';
+
                                         //Delete button with form
                                         echo '<form action="/inventory/delete" method="post">';
                                         echo '<input type="hidden" value="' . $items['item_id'] .'" name="id">';

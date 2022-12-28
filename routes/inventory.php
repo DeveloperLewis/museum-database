@@ -4,12 +4,12 @@
 
 $router->get('/inventory/new', function () use ($middleware) {
     $middleware->authenticateUser();
-    require_once('controllers/admin/transactions.php');
+    require_once('controllers/inventory/new.php');
 });
 
 $router->post('/inventory/new', function ($params) use ($middleware) {
     $middleware->authenticateUser();
-    require_once('controllers/admin/transactions.php');
+    require_once('controllers/inventory/new.php');
 });
 
 $router->post('/inventory/delete', function ($params) use ($middleware) {

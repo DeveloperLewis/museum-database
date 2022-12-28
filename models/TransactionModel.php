@@ -36,5 +36,20 @@ class TransactionModel
 
         return "Successfully stored a transaction in the database";
     }
+
+    public function getAllDsc(): array {
+        $database = new Database();
+        $stmt = $database->getPdo()->prepare("SELECT * FROM transactions ORDER BY transaction_id DESC");
+
+        if (!$stmt->execute()) {
+            throw new Exception("Failed to execute statement");
+        }
+
+        if (!$transaction_array = $stmt->fetchAll()) {
+            throw new Exception(("Failed to fetch inventory array"));
+        }
+
+        return $transaction_array;
+    }
     
 }

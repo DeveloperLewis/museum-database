@@ -9,39 +9,56 @@
 <div class="container">
     <div class="col-12">
         <div class="row m-4">
-            <div class="col-md-4">
+            <div class="col-md-3">
 
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6 text-white">
+                <form action="/inventory/new" method="post">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Name</label>
+                        <input type="text" class="form-control" name="name" value="">
+                    </div>
+                </div>
 
-                <?php
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Origin Country</label>
+                        <input type="text" class="form-control" name="origin_country" value="">
+                    </div>
 
-                //Display all errors that show when trying to submit the post request for a new category
-                if (isset($_SESSION['errors'])) {
-                    foreach ($_SESSION['errors'] as $k => $v) {
-                        echo '<div class="alert alert-danger" role="alert">';
-                        echo $v;
-                        echo '</div>';
-                    }
-                    unset($_SESSION['errors']);
-                }
-                ?>
+                    <div class="col-md-4">
+                        <label>Age</label>
+                        <input type="text" class="form-control" name="age" value="">
+                    </div>
 
-                <form action="/category/new" method="post">
-                    <label>Category Name: </label>
-                    <input type="text" class="form-control" name="name" value="<?php
-                    //Refill value if post failed
-                    if (isset($_SESSION['previous'])) {
-                        echo $_SESSION['previous'];
-                        unset($_SESSION['previous']);
-                    }
-                    ?>">
+                    <div class="col-md-4">
+                        <label>Estimated Value</label>
+                        <input type="text" class="form-control" name="estimated_value" value="">
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Acquired Date</label>
+                        <input type="date" class="form-control" name="acquired_date" value="">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label>Location Room</label>
+                        <input type="text" class="form-control" name="location_room" value="">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label>Maintenance Status</label>
+                        <input type="text" class="form-control" name="maintenance_status" value="">
+                    </div>
+                </div>
                     <button class="btn btn-primary mt-2 float-end" type="submit">Add</button>
-                    <a class="btn btn-danger mt-2 float-start" href="/admin/categories?amount=0">Cancel</a>
+                    <a class="btn btn-danger mt-2 float-start" href="/inventory">Cancel</a>
                 </form>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
 
             </div>
         </div>
