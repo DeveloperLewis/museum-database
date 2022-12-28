@@ -1,3 +1,8 @@
+<?php
+/* @var $errors_array */
+/* @var $vars */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +13,13 @@
 
 <div class="container">
     <div class="col-12">
+
+        <?php
+        if ($errors_array ?? null) {
+            showErrors($errors_array);
+        }
+        ?>
+
         <div class="row m-4">
             <div class="col-md-3">
 

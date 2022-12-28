@@ -12,7 +12,7 @@
 <div class="container">
     <div class="m-4">
         <div class="text-center m-4 text-white">
-            <h2>Transactions</h2>
+            <h2>Visitors</h2>
         </div>
 
         <div class="card-body">
@@ -42,7 +42,6 @@
                                         <th scope="col" class="lato-strong">Visitor Id</th>
                                         <th scope="col" class="lato-strong">Entry Date</th>
                                         <th scope="col" class="lato-strong">Exit Date</th>
-                                        <th scope="col" class="lato-strong">Delete</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -57,11 +56,6 @@
                                             echo "<td>" . $visitors["entry_date"] . "</td>";
                                             echo "<td>" . $visitors["exit_date"] . "</td>";
 
-                                            //Delete button with form
-                                            echo '<form action="/transactions/delete" method="post">';
-                                            echo '<input type="hidden" value="' . $visitors['visitor_id'] .'" name="id">';
-                                            echo '<td><button class="btn btn-danger" type="submit">X</button></td>';
-                                            echo '</form>';
                                             echo '</tr>';
                                             echo "</td>";
                                         }

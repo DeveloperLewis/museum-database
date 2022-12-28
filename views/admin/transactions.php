@@ -45,7 +45,6 @@
                                         <th scope="col" class="lato-strong">Payment Method</th>
                                         <th scope="col" class="lato-strong">Amount</th>
                                         <th scope="col" class="lato-strong">Date</th>
-                                        <th scope="col" class="lato-strong">Delete</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -62,12 +61,6 @@
                                             echo "<td>" . $transactions["payment_method"] . "</td>";
                                             echo "<td>" . $transactions["amount"] . "</td>";
                                             echo "<td>" . $transactions["date"] . "</td>";
-
-                                            //Delete button with form
-                                            echo '<form action="/transactions/delete" method="post">';
-                                            echo '<input type="hidden" value="' . $transactions['transaction_id'] .'" name="id">';
-                                            echo '<td><button class="btn btn-danger" type="submit">X</button></td>';
-                                            echo '</form>';
                                             echo '</tr>';
                                             echo "</td>";
                                         }

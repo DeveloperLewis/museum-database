@@ -12,7 +12,7 @@
 <div class="container">
     <div class="m-4">
         <div class="text-center m-4 text-white">
-            <h2>Transactions</h2>
+            <h2>Staff Members</h2>
         </div>
 
         <div class="card-body">
@@ -27,6 +27,7 @@
                                 <div class="col">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <a class="btn btn-danger" href="/"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
+                                        <a class="btn btn-primary" href="/staff/new">Add New Staff Member</a>
                                     </div>
                                 </div>
                             </div>

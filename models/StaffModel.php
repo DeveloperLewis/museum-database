@@ -66,5 +66,21 @@ class StaffModel
 
         return $staff_array;
     }
+
+    public function getById($id): array|string {
+        $database = new Database();
+        $stmt = $database->getPdo()->prepare("SELECT * FROM staff WHERE staff_id = ?");
+
+        if (!$stmt->execute([$id])) {
+            throw new Exception("Failed to execute statement");
+        }
+
+        if (!$staff_array = $stmt->fetch()) {
+            return "Staff Member not found";
+        }
+
+        return $staff_array;
+
+    }
     
 }

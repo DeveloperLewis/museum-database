@@ -35,6 +35,8 @@ $router->get('/seed', function () {
 require_once('routes/user.php');
 require_once('routes/admin.php');
 require_once('routes/inventory.php');
+require_once('routes/maintenance.php');
+require_once('routes/staff.php');
 
 
 $router->run();

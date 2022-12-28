@@ -23,11 +23,6 @@
                     <div id="articles-panel">
 
                         <?php
-                        //
-                        if ($errors_array ?? null) {
-                            showErrors($errors_array);
-                        }
-
                         //display that article success messages
                         if ($vars['success'] ?? null) {
                             showSuccess($vars['success']);

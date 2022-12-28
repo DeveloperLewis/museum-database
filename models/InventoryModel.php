@@ -53,21 +53,6 @@ class InventoryModel
         return $amount["COUNT(item_id)"];
     }
 
-    public function getAllAsc(): array {
-        $database = new Database();
-        $stmt = $database->getPdo()->prepare("SELECT * FROM inventory ORDER BY item_id ASC");
-
-        if (!$stmt->execute()) {
-            throw new Exception("Failed to execute statement");
-        }
-
-        if (!$inventory_array = $stmt->fetchAll()) {
-            throw new Exception(("Failed to fetch inventory array"));
-        }
-
-        return $inventory_array;
-    }
-
     public function getAllDsc(): array {
         $database = new Database();
         $stmt = $database->getPdo()->prepare("SELECT * FROM inventory ORDER BY item_id DESC");
@@ -92,6 +77,22 @@ class InventoryModel
         }
 
         return "Successfully deleted the item";
+    }
+
+    public function getById($id): array|string {
+        $database = new Database();
+        $stmt = $database->getPdo()->prepare("SELECT * FROM inventory WHERE item_id = ?");
+
+        if (!$stmt->execute([$id])) {
+            throw new Exception("Failed to execute statement");
+        }
+
+        if (!$item_array = $stmt->fetch()) {
+            return "Item not found";
+        }
+
+        return $item_array;
+
     }
 
 }

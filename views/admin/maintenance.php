@@ -12,14 +12,17 @@
 <div class="container">
     <div class="m-4">
         <div class="text-center m-4 text-white">
-            <h2>Transactions</h2>
+            <h2>Maintenance Logs</h2>
         </div>
 
         <div class="card-body">
             <div class="row">
 
-                <div class="col-md-12">
+                <?php
+                    showSuccess($vars['success'] ?? null);
+                ?>
 
+                <div class="col-md-12">
                     <div id="articles-panel">
                         <div class="mb-4">
                             <div class="row">
@@ -27,6 +30,7 @@
                                 <div class="col">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <a class="btn btn-danger" href="/inventory"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
+                                        <a class="btn btn-primary" href="/maintenance/new?id=<?= $_GET['id'] ?? null ?>">New Maintenance Log</a>
                                     </div>
                                 </div>
                             </div>
@@ -41,7 +45,6 @@
                                     <tr>
                                         <th scope="col" class="lato-strong">Maintenance Id</th>
                                         <th scope="col" class="lato-strong">Staff Id</th>
-                                        <th scope="col" class="lato-strong">Item Id</th>
                                         <th scope="col" class="lato-strong">Description</th>
                                         <th scope="col" class="lato-strong">Date</th>
                                     </tr>
@@ -51,13 +54,12 @@
                                     <?php
                                     //Display all articles in the table
                                     $maintenanceModel = new \models\MaintenanceModel();
-                                    if ($maintenance_array = $maintenanceModel->getByItemIdDsc($_GET['id'])) {
+                                    if ($maintenance_array = $maintenanceModel->getByItemIdDsc($_GET['id'] ?? null)) {
                                         if (is_array($maintenance_array)) {
                                             foreach ($maintenance_array as $maintenance) {
                                                 echo "<tr>";
                                                 echo "<td>" . $maintenance["maintenance_id"] . "</td>";
                                                 echo "<td>" . $maintenance["staff_id"] . "</td>";
-                                                echo "<td>" . $maintenance["item_id"] . "</td>";
                                                 echo "<td>" . $maintenance["description"] . "</td>";
                                                 echo "<td>" . $maintenance["date"] . "</td>";
                                             }
