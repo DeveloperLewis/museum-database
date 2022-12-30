@@ -17,6 +17,7 @@
 
         <?php
             showSuccess($vars['success'] ?? null);
+            showErrors($errors_array);
         ?>
 
         <div class="card-body">
@@ -73,11 +74,12 @@
                                             echo "<td>" . $staff["employment_date"] . "</td>";
 
                                             //Delete button with form
-                                            echo '<form action="/transactions/delete" method="post">';
+                                            echo '<form action="/staff/delete" method="post">';
                                             echo '<input type="hidden" value="' . $staff['staff_id'] .'" name="id">';
                                             echo '<td><button class="btn btn-danger" type="submit">X</button></td>';
                                             echo '</form>';
                                             echo '</tr>';
+
                                             echo "</td>";
                                         }
                                     }

@@ -67,6 +67,17 @@ class StaffModel
         return $staff_array;
     }
 
+    public function delete($staff_id): string {
+        $database = new Database();
+        $stmt = $database->getPdo()->prepare("DELETE FROM staff WHERE staff_id = ?");
+
+        if (!$stmt->execute([$staff_id])) {
+            throw new Exception("Failed to delete item");
+        }
+
+        return "Successfully deleted the staff member";
+    }
+
     public function getById($id): array|string {
         $database = new Database();
         $stmt = $database->getPdo()->prepare("SELECT * FROM staff WHERE staff_id = ?");

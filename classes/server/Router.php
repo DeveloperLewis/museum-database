@@ -11,6 +11,8 @@ class Router
     private const get = 'GET';
     private const post = 'POST';
 
+
+    //Routing handlers-
     public function get($path, $handler): void
     {
         $this->createHandler(self::get, $path, $handler);
@@ -60,7 +62,6 @@ class Router
             }
         }
 
-        //Turn into req, res objects another time when I learn more.
         call_user_func_array($callback, [
             array_merge($_GET, $_POST)
         ]);

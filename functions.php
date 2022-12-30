@@ -3,7 +3,7 @@
 function dateAndTime(): string
 {
     try {
-        $timezone = 'Europe/London';
+        $timezone = 'Europe/Minsk';
         $timestamp = time();
         $dt = new DateTime("now", new DateTimeZone($timezone));
         $dt->setTimestamp($timestamp);

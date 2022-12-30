@@ -67,7 +67,7 @@ class User
         return $password_errors;
     }
 
-    //Return whether the email is unique within the database.
+    //Return whether the username is unique within the database.
     public function isUsernameUnique($username): bool {
         $database = new Database();
         $stmt = $database->getPdo()->prepare("SELECT username FROM admins WHERE username = ?");;

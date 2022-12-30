@@ -8,8 +8,7 @@
 <div class="p-5 mb-4 text-white hero-image">
     <div class="container py-5">
         <h1 class="display-5 fw-bold">Worlds of Micro Discovery</h1>
-        <p class="col-md-6 fs-5">Cras pharetra, est id accumsan interdum, lorem velit consequat ligula, ut feugiat lorem nibh quis dolor. Nullam risus dolor, tempor non vehicula sed, porta non nulla. </p>
-        <button class="btn bg-dark text-white rounded-0 btn-lg" type="button">Learn More</button>
+        <p class="col-md-6 fs-5">Always looking for passionate, hardworking staff to man our museum. If you're an admin, please login using the form above!</p>
     </div>
 </div>
 <div class="container">
@@ -19,7 +18,6 @@
             </div>
 
             <div class="col-md-4 text-white">
-                <h3><strong>Free entry – book online</strong></h3>
                 <h3><strong>Open today: 10.00–17.00</strong></h3>
                 <h3><strong>Last entry: 16.00</strong></h3>
             </div>
@@ -28,29 +26,29 @@
     <hr class="text-white">
 
     <div class="row">
-        <div class="col-md-4 mt-3">
+        <div class="col-xl-4 mt-3">
             <div class="card" style="width: 26rem; margin: auto;">
-                <img class="card-img-top" src="/public/imgs/1.jpg" alt="Card image cap">
+                <img class="card-img-top" src="/public/imgs/2.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">The museum thrives on its creativity, ingenuity and passion for sharing and archiving micro-biology.</p>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4 mt-3">
+        <div class="col-xl-4 mt-3">
             <div class="card" style="width: 26rem; margin: auto;">
-                <img class="card-img-top" src="/public/imgs/1.jpg" alt="Card image cap">
+                <img class="card-img-top" src="/public/imgs/4.png" alt="Card image cap">
                 <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">There's always heaps to do at the museum so you'll never get bored. Come bring in your resume!</p>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4 mt-3">
+        <div class="col-xl-4 mt-3">
             <div class="card" style="width: 26rem; margin: auto;">
-                <img class="card-img-top" src="/public/imgs/1.jpg">
+                <img class="card-img-top" src="/public/imgs/5.jpg">
                 <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">Some times, the office job just isn't cutting it, come found out why our employees love it here.</p>
                 </div>
             </div>
         </div>

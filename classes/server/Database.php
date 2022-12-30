@@ -5,6 +5,8 @@ namespace classes\server;
 class Database
 {
 
+
+    //PDO options
     private array $options = [
 
         \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
@@ -28,7 +30,7 @@ class Database
         }
     }
 
-    //Here you can get the pdo object from the database object so that you can do database queries, etc...
+    //PDO object for database interaction
     public function getPdo()
     {
         return $this->pdo;

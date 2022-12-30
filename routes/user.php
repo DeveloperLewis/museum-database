@@ -1,19 +1,6 @@
 <?php
 /** @var object $router */
 /** @var object $middleware */
-$router->get('/user/register', function (){
-    if (isLoggedIn()) {
-        redirect("/");
-    }
-    require_once('controllers/user/register.php');
-});
-
-$router->post('/user/register', function () {
-    if (isLoggedIn()) {
-        redirect("/");
-    }
-    require_once('controllers/user/register.php');
-});
 
 $router->get('/user/login', function (){
     if (isLoggedIn()) {
