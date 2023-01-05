@@ -3,7 +3,7 @@
 namespace classes\server;
 class Env
 {
-    //Database variables
+    //Переменные для базы данных
     public string $type = 'mysql';
     public string $server = 'localhost';
     public string $db = 'museum';
@@ -13,7 +13,7 @@ class Env
     public string $database_username = 'root';
     public string $database_password = '';
 
-    //Starter Admin Account Variables
+    //Переменные для входа
     public string $admin_username = 'Admin1';
     public string $admin_password = 'SuperAdmin50;';
 }

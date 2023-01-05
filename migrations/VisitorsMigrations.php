@@ -28,9 +28,9 @@ class VisitorsMigrations
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to create visitors table.");
+            throw new Exception("Невозможно создать таблицу посетителей.");
         }
-        return "Successfully created visitors table.";
+        return "Таблица посетителей успешно создана.";
     }
 
     public function alterKeys(): string {
@@ -39,10 +39,10 @@ class VisitorsMigrations
 ");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to alter the visitors table and make the visitor_id the primary key.");
+            throw new Exception("Невозможно установить первичный ключ.");
         }
 
-        return "Successfully altered the primary key.";
+        return "Успешно установлен первичный ключ.";
     }
 
     public function alterAutoIncrement(): string {
@@ -50,10 +50,10 @@ class VisitorsMigrations
   MODIFY `visitor_id` int(11) NOT NULL AUTO_INCREMENT;");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to alter the visitors table and make the visitor_id auto incrementing");
+            throw new Exception("Невозможно установить автоматическую инкрементацию");
         }
 
-        return "Successfully altered the visitors table.";
+        return "Изменения успешно внесены в таблицу.";
     }
 
     public function seed($amount): void {

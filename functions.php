@@ -54,18 +54,18 @@ function isLoggedIn(): bool {
 function getList($option): array {
     switch ($option) {
         case "maintenance":
-            return ["Great", "Ok", "Broken"];
+            return ["Отличное", "Хорошее", "Сломан"];
         case "items":
-            return ["Granite", "Crown", "Bones", "Statue", "Jeweled Necklace", "Silverware", "Fancy Plate", "Arrow Head",
-                "Fabric", "Coin", "Old Coin", "Pot", "Tea Pot"];
+            return ["Горная порода", "Корона", "Окаменелость", "Статуя", "Ожерелье", "Столовое серебро", "Изысканнная посуда", "Наконечник стрелы",
+                "Полотно", "Монета", "Традиционная одежда", "Горшок", "Ваза"];
         case "positions":
-            return ["Janitor", "Maintainer", "Painter", "Receptionist", "Scientist", "Tour Guide"];
+            return ["Уборщик помещений", "Техник", "Маляр", "Администратор", "Ученый", "Экскурсовод"];
         case "payment_types":
-            return ["Paid", "Pending", "Refund"];
+            return ["Оплачено", "Ожидание", "Возврат"];
         case "payment_categories":
-            return ["Gift Shop", "Contracts", "Assets"];
+            return ["Сувенирный магазин", "Контракты", "Посещение музея"];
         case "payment_methods":
-            return ["Card", "Cash", "Cheque"];
+            return ["Карта", "Наличные"];
     }
 }
 

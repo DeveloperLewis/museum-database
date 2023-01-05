@@ -25,10 +25,10 @@ class VisitorModel
         $stmt = $database->getPdo()->prepare("INSERT INTO visitors (entry_date, exit_date) VALUES (?,?);");
 
         if (!$stmt->execute([$this->entry_date, $this->exit_date])) {
-            throw new Exception("Unable to store visitor in the database");
+            throw new Exception("Невозможно сохранить посетителя в базе данных");
         };
 
-        return "Successfully stored a new visitor in the database";
+        return "Посетитель успешно сохранен в базе данных";
     }
 
     public function getAllDsc(): array {
@@ -36,11 +36,11 @@ class VisitorModel
         $stmt = $database->getPdo()->prepare("SELECT * FROM visitors ORDER BY visitor_id DESC");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to execute statement");
+            throw new Exception("Невозможно выполнение команды");
         }
 
         if (!$visitors_array = $stmt->fetchAll()) {
-            throw new Exception(("Failed to fetch inventory array"));
+            throw new Exception(("Невозможно получить массив данных"));
         }
 
         return $visitors_array;

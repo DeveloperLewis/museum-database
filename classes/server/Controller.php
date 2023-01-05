@@ -6,7 +6,7 @@ class Controller
 {
     protected string $view;
 
-    //Get requests for controller
+    //Получение запросов на контроллер
     public function get(callable $callback): void
     {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -14,7 +14,7 @@ class Controller
         }
     }
 
-    //post requests for controller
+    //Отправка запросов для контроллера
     public function post(callable $callback): void
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -22,13 +22,13 @@ class Controller
         }
     }
 
-    //Set the view of the controller
+    //Установка вида контроллера
     public function setView(string $viewLocation): void
     {
         $this->view = $viewLocation;
     }
 
-    //require the view of the controller that has been set
+    //Запрос установленного вида контроллера
     public function view($vars = null, $errors_array = null): void
     {
         require_once('views/' . $this->view . '.php');

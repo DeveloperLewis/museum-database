@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fs-5">
                 <li class="nav-item text-center">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="/">Главная</a>
                 </li>
 
                 <?php
@@ -23,7 +23,7 @@
                 ?>
 
                 <li class="nav-item text-center">
-                    <a class="nav-link" href="/"><span class="text-white"><strong>International Vault of Micro Life</strong></span></a>
+                    <a class="nav-link" href="/"><span class="text-white"><strong>Национальный музей мировой истории</strong></span></a>
                 </li>
 
                 <?php

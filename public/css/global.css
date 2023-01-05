@@ -1,10 +1,10 @@
-/* Global */
+/* Глобальные настройки цвета */
 body {
     background-color: #2A2E32;
     overflow-x: hidden;
 }
 
-/* Colour Scheming */
+/* Цветовая схема */
 .colour-light-dark {
     background-color: #2A2E32;
 }
@@ -31,7 +31,7 @@ body {
     color: white;
 }
 
-/* Fonts */
+/* Шрифт */
 
 * {
     font-family: 'Lato', sans-serif;
@@ -46,7 +46,7 @@ body {
     font-weight: 200;
 }
 
-/* General */
+/* Все параметры */
 .remove-underline {
     text-decoration: none;
 }
