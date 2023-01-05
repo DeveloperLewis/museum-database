@@ -32,9 +32,9 @@ class MaintenanceMigrations
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to create maintenance table.");
+            throw new Exception("Невозможно создать таблицу технического обслуживания.");
         }
-        return "Successfully created maintenance table.";
+        return "Таблица технического обслуживания успешно создана.";
     }
 
     public function alterKeys(): string {
@@ -42,10 +42,10 @@ class MaintenanceMigrations
   ADD PRIMARY KEY (`maintenance_id`);");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to alter the maintenance table and update keys");
+            throw new Exception("Невозможно изменить таблицу технического обслуживания");
         }
 
-        return "Successfully altered the keys";
+        return "Изменения успешно внесены в таблицу";
     }
 
     public function alterAutoIncrement(): string {
@@ -53,10 +53,10 @@ class MaintenanceMigrations
   MODIFY `maintenance_id` int(11) NOT NULL AUTO_INCREMENT;");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to alter the maintenance table and make the maintenance_id auto incrementing");
+            throw new Exception("Невозможно установить автоматическую инкрементацию");
         }
 
-        return "Successfully altered the maintenance table.";
+        return "Изменения успешно внесены в таблицу.";
     }
 
     public function seed($amount): void {

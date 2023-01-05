@@ -28,9 +28,9 @@ $controller->post(function() use ($controller) {
     $staff_errors = [];
     $description_errors = [];
 
-    //item id
+    //Номер элемента
     if (empty($_POST['item_id'])) {
-        $item_errors['empty'] = "The item_id cannot be empty";
+        $item_errors['empty'] = "Это поле не может быть пустым";
     }
 
     $item_id = $_POST['item_id'];
@@ -38,20 +38,20 @@ $controller->post(function() use ($controller) {
     $item = $invModel->getById($item_id);
 
     if (is_string($item)) {
-        $item_errors['missing'] = "The item was not found";
+        $item_errors['missing'] = "Элемент не найден";
     }
 
     if (!preg_match('/[\d]/', $item_id)) {
-        $item_errors['invalid_characters'] = "Item id must only contain numbers";
+        $item_errors['invalid_characters'] = "Номер может содержать только цифры";
     }
 
     if (strlen($item_id) > 11) {
-        $item_errors['max_length'] = "Item id cannot be more than 11 characters long.";
+        $item_errors['max_length'] = "Номер не может быть длиннее 11 знаков.";
     }
 
-    //staff id
+    //Номер члена персонала
     if (empty($_POST['staff_id'])) {
-        $staff_errors['empty'] = "The staff member must be selected";
+        $staff_errors['empty'] = "Член персонала должен быть выбран";
     }
 
     $staff_id = $_POST['staff_id'];
@@ -60,30 +60,30 @@ $controller->post(function() use ($controller) {
 
 
     if (is_string($staff)) {
-        $staff_errors['missing'] = "The staff member was not found";
+        $staff_errors['missing'] = "Член персонала не найден";
     }
 
     if (!preg_match('/[\d]/', $staff_id)) {
-        $staff_errors['invalid_characters'] = "Staff id must only contain numbers";
+        $staff_errors['invalid_characters'] = "Номер может содержать только цифры";
     }
 
     if (strlen($staff_id) > 11) {
-        $staff_errors['max_length'] = "Staff id cannot be more than 11 characters long.";
+        $staff_errors['max_length'] = "Номер не может быть длиннее 11 знаков.";
     }
 
-    //description
+    //Описание
     if (empty($_POST['description'])) {
-        $description_errors['empty'] = "The description must not be empty";
+        $description_errors['empty'] = "Описание не должно быть пустым полем";
     }
 
     $description = $_POST['description'];
 
     if (strlen($description) > 2000) {
-        $description_errors['max_length'] = "The description cannot be more than 2000 characters long";
+        $description_errors['max_length'] = "Описание не может быть длиннее 200 знаков";
     }
 
     if (!preg_match('/[A-z\d.,+ ]/', $description)) {
-        $description_errors['special_chars'] = "The description can only contain letters, numbers, spaces and .,+ characters.";
+        $description_errors['special_chars'] = "Описание может содержать только буквы, цифры, пробелы и знаки .,+.";
     }
 
     if (!empty($item_errors)) {
@@ -106,7 +106,7 @@ $controller->post(function() use ($controller) {
     $maintenanceModel->create($staff_id, $item_id, $description, dateAndTime());
     $maintenanceModel->store();
 
-    $_SESSION['success'] = "Successfully added a new maintenance log to the database.";
+    $_SESSION['success'] = "Успешно добавлена новая запись в журнал технического обслуживания.";
 
     redirect('/maintenance?id=' . $item_id);
 });

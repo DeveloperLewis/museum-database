@@ -34,10 +34,10 @@ class InventoryModel
         $stmt = $database->getPdo()->prepare("INSERT INTO inventory (name, origin_country, age, estimated_value, acquired_date, location_room, maintenance_status) VALUES (?,?,?,?,?,?,?);");
 
         if (!$stmt->execute([$this->name, $this->origin_country, $this->age, $this->estimated_value, $this->acquired_date, $this->location_room, $this->maintenance_status])) {
-            throw new Exception("Unable to store item in the database");
+            throw new Exception("Невозможно сохранить предмет в базу данных");
         };
 
-        return "Successfully stored item in the database";
+        return "Предмет успешно сохранен в базе данных";
     }
 
     public function total(): int {
@@ -45,7 +45,7 @@ class InventoryModel
         $stmt = $database->getPdo()->prepare("SELECT COUNT(item_id) FROM inventory");
 
         if (!$stmt->execute()) {
-            throw new Exception("Unable to get count of rows for items in inventory table");
+            throw new Exception("Невозможно получить нужное количество строк в базе данных");
         }
 
         $amount = $stmt->fetch();
@@ -58,11 +58,11 @@ class InventoryModel
         $stmt = $database->getPdo()->prepare("SELECT * FROM inventory ORDER BY item_id DESC");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to execute statement");
+            throw new Exception("Невозможно выполнение команды");
         }
 
         if (!$inventory_array = $stmt->fetchAll()) {
-            throw new Exception(("Failed to fetch inventory array"));
+            throw new Exception(("Невозможно получить массив данных"));
         }
 
         return $inventory_array;
@@ -73,10 +73,10 @@ class InventoryModel
         $stmt = $database->getPdo()->prepare("DELETE FROM inventory WHERE item_id = ?");
 
         if (!$stmt->execute([$item_id])) {
-            throw new Exception("Failed to delete item");
+            throw new Exception("Невозможно удалить предмет");
         }
 
-        return "Successfully deleted the item";
+        return "Предмет успешно удален";
     }
 
     public function getById($id): array|string {
@@ -84,11 +84,11 @@ class InventoryModel
         $stmt = $database->getPdo()->prepare("SELECT * FROM inventory WHERE item_id = ?");
 
         if (!$stmt->execute([$id])) {
-            throw new Exception("Failed to execute statement");
+            throw new Exception("Невозможно выполнение команды");
         }
 
         if (!$item_array = $stmt->fetch()) {
-            return "Item not found";
+            return "Предмет не найден";
         }
 
         return $item_array;

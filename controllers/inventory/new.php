@@ -50,113 +50,113 @@ $controller->post(function() use ($controller) {
     $location_room_errors = [];
     $maintenance_status_errors = [];
 
-    //name
+    //Имя
     if (empty($_POST['name'])) {
-        $name_errors['empty'] = "The name cannot be empty";
+        $name_errors['empty'] = "Имя не может быть пустым полем";
     }
 
     $name = $_POST['name'];
 
     if (strlen($name) > 100) {
-        $name_errors['max_size'] = "The name cannot be more than 100 characters";
+        $name_errors['max_size'] = "Имя не может содержать более 100 знаков";
     }
 
     if (!preg_match('/[A-z ]/', $name)) {
-        $name_errors['characters'] = "The name can only contain letters and spaces.";
+        $name_errors['characters'] = "Имя может содержать только буквы и пробелы.";
     }
 
 
-    //country
+    //Страна
     if (empty($_POST['origin_country'])) {
-        $origin_country_errors['empty'] = "Country cannot be empty";
+        $origin_country_errors['empty'] = "Страна не может быть пустым полем";
     }
 
     $origin_country = $_POST['origin_country'];
 
     if (strlen($origin_country) > 100) {
-        $origin_country_errors['max_size'] = "The country cannot be more than 100 characters";
+        $origin_country_errors['max_size'] = "Страна не может содержать более 100 знаков";
     }
 
     if (!preg_match('/[A-z ]/', $origin_country)) {
-        $origin_country_errors['characters'] = "The country can only contain letters and spaces.";
+        $origin_country_errors['characters'] = "Страна может содержать только буквы и пробелы.";
     }
 
-    //age
+    //Возраст
     if (empty($_POST['age'])) {
-        $age_errors['empty'] = "The age cannot be empty";
+        $age_errors['empty'] = "Возраст не может быть пустым полем";
     }
 
     $age = $_POST['age'];
 
     if (strlen($age) > 30) {
-        $age_errors['max_size'] = "The age cannot be more than 100 characters";
+        $age_errors['max_size'] = "Возраст не может содержать более 100 знаков";
     }
 
     if (!preg_match('/[\d]/', $age)) {
-        $age_errors['characters'] = "The age can only contain digits, / and - .";
+        $age_errors['characters'] = "Возраст может содержать только цифры, / и - .";
     }
 
-    //est value
+    //Стоимость
     if (empty($_POST['estimated_value'])) {
-        $estimated_value_errors_errors['empty'] = "The value cannot be empty";
+        $estimated_value_errors_errors['empty'] = "Стоимость не может быть пустым полем";
     }
 
     $estimated_value = $_POST['estimated_value'];
 
     if (strlen($estimated_value) > 50) {
-        $estimated_value_errors['max_size'] = "The value cannot be more than 100 characters";
+        $estimated_value_errors['max_size'] = "Стоимость не может содержать более 100 знаков";
     }
 
     if (!preg_match('/[\d]/', $estimated_value)) {
-        $estimated_value_errors['characters'] = "The value can only contain numbers";
+        $estimated_value_errors['characters'] = "Стоимость может содержать только цифры";
     }
 
-    //acquired date
+    //Дата получения
     if (empty($_POST['acquired_date'])) {
-        $acquired_date_errors['empty'] = "The date cannot be empty";
+        $acquired_date_errors['empty'] = "Дата не может быть пустым полем";
     }
 
     $acquired_date = $_POST['acquired_date'];
 
     if (strlen($acquired_date) > 20) {
-        $acquired_date_errors['max_size'] = "The date cannot be more than 100 characters";
+        $acquired_date_errors['max_size'] = "Дата не может содержать более 100 знаков";
     }
 
     if (!preg_match('/[\d\-\/  ]/', $acquired_date)) {
-        $acquired_date_errors['characters'] = "The date can only contain digits, / and - ";
+        $acquired_date_errors['characters'] = "Дата может содержать только цифры, / и - ";
     }
 
-    //room
+    //Комната местонахождения
     if (empty($_POST['location_room'])) {
-        $location_room_errors['empty'] = "The room cannot be empty";
+        $location_room_errors['empty'] = "Номер комнаты не может быть пустым полем";
     }
 
     $location_room = $_POST['location_room'];
 
     if (strlen($location_room) > 10) {
-        $location_room_errors['max_size'] = "The room cannot be more than 3 characters";
+        $location_room_errors['max_size'] = "Номер комнаты не может содержать более 3 знаков";
     }
 
     if (!preg_match('/[\d]/', $location_room)) {
-        $location_room_errors['characters'] = "The room can only contain digits";
+        $location_room_errors['characters'] = "Номер комнаты может содержать только цифры";
     }
 
-    //maintain
+    //Обслуживание
     if (empty($_POST['maintenance_status'])) {
-        $maintenance_status_errors['empty'] = "The maintenance status cannot be empty";
+        $maintenance_status_errors['empty'] = "Статус технического обслуживания не может быть пустым полем";
     }
 
     $maintenance_status = $_POST['maintenance_status'];
 
     if (strlen($maintenance_status) > 50) {
-        $maintenance_status_errors['max_size'] = "The maintenance status cannot be more than 50 characters";
+        $maintenance_status_errors['max_size'] = "Статус технического обслуживания не может содержать более 50 знаков";
     }
 
     if (!preg_match('/[A-z ]/', $maintenance_status)) {
-        $maintenance_status_errors['characters'] = "The maintenance status can only contain letters and spaces.";
+        $maintenance_status_errors['characters'] = "Статус технического обслуживания может содержать только буквы и пробелы.";
     }
 
-    //Check if any errors are present
+    //Проверка на наличие ошибок
     if (!empty($name_errors)) {
         $_SESSION['name_errors'] = $name_errors;
     }
@@ -195,7 +195,7 @@ $controller->post(function() use ($controller) {
     $inventoryModel->create($name, $origin_country, (int)$age, (int)$estimated_value, $acquired_date, (int)$location_room, $maintenance_status);
     $inventoryModel->store();
 
-    $_SESSION['success'] = "Successfully added a new item to the database";
+    $_SESSION['success'] = "Новый элемент успешно добавлен в базу данных";
 
     redirect('/inventory');
 });

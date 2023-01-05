@@ -6,7 +6,7 @@ $controller->post(function() {
         if ($success = $staffModel->delete($_POST['id'])) {
             $_SESSION['success'] = $success;
         } else {
-            $_SESSION['errors'] = ["Unable to delete item " . $_POST['id'] . ". Please try again."];
+            $_SESSION['errors'] = ["Невозможно удалить элемент " . $_POST['id'] . ". Повторите попытку."];
         }
     }
     redirect("/staff");

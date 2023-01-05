@@ -26,10 +26,10 @@ class AdminModel
         $stmt = $database->getPdo()->prepare("INSERT INTO admins (username, password, account_creation_date) VALUES (?,?,?);");
 
         if (!$stmt->execute([$this->username, $this->password, $this->account_creation_date])) {
-            throw new Exception("Unable to store admin in the database");
+            throw new Exception("Невозможно сохранить данные админа");
         };
 
-        return "Successfully stored admin in the database";
+        return "Данные админа успешно сохранены";
     }
 
     public function authenticate(): string {
@@ -37,20 +37,20 @@ class AdminModel
         $stmt = $database->getPdo()->prepare("SELECT * FROM admins WHERE username = ?");
 
         if (!$stmt->execute([$this->username])) {
-            throw new Exception("SQL statement could not be executed");
+            throw new Exception("Невозможно выполнение SQL-команды");
         }
 
         if (!$admin = $stmt->fetch()) {
-            throw new Exception("User could not be fetched from the database.");
+            throw new Exception("Невозможно получить пользовательские данные из базы данных.");
         }
 
         if (!password_verify($this->password, $admin["password"])) {
-            throw new Exception("Password did not match hashed password in database.");
+            throw new Exception("Пароль не совпадает с сохраненным паролем.");
         }
 
         $this->admin_id = $admin["admin_id"];
 
-        return "Successfully authenticated the admin and set the admin_id property";
+        return "Успешная авторизация админа";
     }
 
     public function get(): string {
@@ -58,15 +58,15 @@ class AdminModel
         $stmt = $database->getPdo()->prepare("SELECT * FROM admins WHERE admin_id = ?");
 
         if (!$stmt->execute([$this->admin_id])) {
-            throw new Exception("Failed to execute the get by user_id statement.");
+            throw new Exception("Невозможно выполнение команды.");
         }
 
         if (!$admin = $stmt->fetch()) {
-            throw new Exception("Failed to fetch the user from the database");
+            throw new Exception("Невозможно получить пользовательские данные из базы данных");
         }
 
         $this->create($admin["username"], $admin["password"], $admin["account_creation_date"], $admin["admin_id"]);
 
-        return "Successfully created the userModel and filled properties.";
+        return "Пользовательские данные успешно получены.";
     }
 }

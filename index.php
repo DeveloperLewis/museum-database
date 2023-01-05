@@ -5,10 +5,9 @@ $middleware = new classes\middleware\General();
 
 require_once('init.php');
 
-//Start global session
+//Начало глобальной сессии
 session_start();
 
-//Standard & Basic routes
 $router->get('/', function () {
     require_once('controllers/index.php');
 });
@@ -31,7 +30,6 @@ $router->get('/seed', function () {
     $mainMig->seed(60);
 });
 
-//Routing Files
 require_once('routes/user.php');
 require_once('routes/admin.php');
 require_once('routes/inventory.php');
