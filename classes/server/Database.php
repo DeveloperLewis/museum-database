@@ -6,7 +6,7 @@ class Database
 {
 
 
-    //PDO настройка
+    //PDO options
     private array $options = [
 
         \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
@@ -17,7 +17,7 @@ class Database
 
     private $pdo = null;
 
-    //При создании элемента базы данных, он прикрепляется к базе данных.
+    //Upon creating a database object, it will connect to the database.
     public function __construct()
     {
         $env = new Env();
@@ -30,7 +30,7 @@ class Database
         }
     }
 
-    //PDO элемент для взаимодействия с базой данных
+    //PDO object for database interaction
     public function getPdo()
     {
         return $this->pdo;

@@ -11,26 +11,26 @@
         <div class="card bg-dark text-white mt-5 mx-2">
             <div class="container">
                 <div class="m-4">
-                    <h3 class="text-center">Вход</h3>
+                    <h3 class="text-center">Login</h3>
                 </div>
 
                 <?php
-                //Ошибки
+                //Errors
                 showErrors($errors_array ?? "");
                 showSuccess($vars["success"] ?? "")
                 ?>
 
                 <form action="/user/login" method="POST">
                     <div class="mb-3">
-                        <label for="username" class="form-label">Имя пользователя</label>
+                        <label for="username" class="form-label">Username</label>
                         <input type="text" class="form-control dark-input" name="username" id="username">
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label">Пароль</label>
+                        <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control dark-input" name="password" id="password">
                     </div>
                     <div class="mt-2 mb-2 d-flex justify-content-center">
-                        <button class="btn btn-primary flex-fill" type="submit">Вход</button>
+                        <button class="btn btn-primary flex-fill" type="submit">Login</button>
                     </div>
                 </form>
             </div>

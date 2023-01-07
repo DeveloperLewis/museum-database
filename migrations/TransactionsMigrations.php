@@ -31,9 +31,9 @@ class TransactionsMigrations
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
 
         if (!$stmt->execute()) {
-            throw new Exception("Невозможно создать таблицу транзакций.");
+            throw new Exception("Failed to create transactions table.");
         }
-        return "Таблица транзакций успешно создана.";
+        return "Successfully created transactions table.";
     }
 
     public function alterKeys(): string {
@@ -41,10 +41,10 @@ class TransactionsMigrations
   ADD PRIMARY KEY (`transaction_id`);");
 
         if (!$stmt->execute()) {
-            throw new Exception("Невозможно установить первичный ключ.");
+            throw new Exception("Failed to alter the transactions table and make the transaction_id the primary key.");
         }
 
-        return "Успешно установлен первичный ключ.";
+        return "Successfully altered the primary key.";
     }
 
     public function alterAutoIncrement(): string {
@@ -52,10 +52,10 @@ class TransactionsMigrations
   MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT;");
 
         if (!$stmt->execute()) {
-            throw new Exception("Невозможно установить автоматическую инкрементацию");
+            throw new Exception("Failed to alter the transactions table and make the transaction_id auto incrementing");
         }
 
-        return "Изменения успешно внесены в таблицу.";
+        return "Successfully altered the transaction table.";
     }
 
     public function seed($amount): void {

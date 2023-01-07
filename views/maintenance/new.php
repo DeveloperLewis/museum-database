@@ -28,7 +28,7 @@
                 <form action="/maintenance/new" method="post">
                     <div class="row">
                         <div class="col-md-12">
-                            <label>Персонал</label>
+                            <label>Staff Member</label>
                             <input type="text" class="form-control" name="staff_id" value="">
                         </div>
                     </div>
@@ -36,14 +36,14 @@
                     <div class="row">
 
                         <div class="col-md-12">
-                            <label>Вид технического обслуживания</label>
+                            <label>Description of Maintenance Performed</label>
                             <textarea class="form-control" name="description"></textarea>
                         </div>
                     </div>
 
                     <input type="hidden" name="item_id" value="<?= $_GET['id'] ?? null?>">
-                    <button class="btn btn-primary mt-2 float-end" type="submit">Добавить</button>
-                    <a class="btn btn-danger mt-2 float-start" href="/maintenance?id=<?= $_GET['id'] ?? null ?>">Удалить</a>
+                    <button class="btn btn-primary mt-2 float-end" type="submit">Add</button>
+                    <a class="btn btn-danger mt-2 float-start" href="/maintenance?id=<?= $_GET['id'] ?? null ?>">Cancel</a>
                 </form>
             </div>
             <div class="col-md-3">

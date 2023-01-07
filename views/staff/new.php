@@ -28,12 +28,12 @@
                 <form action="/staff/new" method="post">
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Имя</label>
+                            <label>First Name</label>
                             <input type="text" class="form-control" name="first_name" value="">
                         </div>
 
                         <div class="col-md-6">
-                            <label>Фамилия</label>
+                            <label>Last Name</label>
                             <input type="text" class="form-control" name="last_name" value="">
                         </div>
                     </div>
@@ -41,34 +41,34 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                            <label>Адрес</label>
+                            <label>Address</label>
                             <input type="text" class="form-control" name="address" value="">
                         </div>
 
                         <div class="col-md-6">
-                            <label>Номер телефона</label>
+                            <label>Phone Number</label>
                             <input type="text" class="form-control" name="contact_number" value="">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-4">
-                            <label>Должность</label>
+                            <label>Job Position</label>
                             <input type="text" class="form-control" name="position" value="">
                         </div>
 
                         <div class="col-md-4">
-                            <label>Зарплата</label>
+                            <label>Salary</label>
                             <input type="text" class="form-control" name="salary" value="">
                         </div>
 
                         <div class="col-md-4">
-                            <label>Дата найма</label>
+                            <label>Employment Date</label>
                             <input type="date" class="form-control" name="employment_date" value="">
                         </div>
                     </div>
-                    <button class="btn btn-primary mt-2 float-end" type="submit">Добавить</button>
-                    <a class="btn btn-danger mt-2 float-start" href="/staff">Удалить</a>
+                    <button class="btn btn-primary mt-2 float-end" type="submit">Add</button>
+                    <a class="btn btn-danger mt-2 float-start" href="/staff">Cancel</a>
                 </form>
             </div>
             <div class="col-md-3">

@@ -31,10 +31,10 @@ class TransactionModel
         $stmt = $database->getPdo()->prepare("INSERT INTO transactions (type, category, payment_method, amount, date) VALUES (?,?,?,?,?);");
 
         if (!$stmt->execute([$this->type, $this->category, $this->payment_method, $this->amount, $this->date])) {
-            throw new Exception("Невозможно сохрание транзакции в базе данных");
+            throw new Exception("Unable to store transaction in the database");
         };
 
-        return "Транзакция успешно сохранена в базе данных";
+        return "Successfully stored a transaction in the database";
     }
 
     public function getAllDsc(): array {
@@ -42,11 +42,11 @@ class TransactionModel
         $stmt = $database->getPdo()->prepare("SELECT * FROM transactions ORDER BY transaction_id DESC");
 
         if (!$stmt->execute()) {
-            throw new Exception("Невозможно выполнение команды");
+            throw new Exception("Failed to execute statement");
         }
 
         if (!$transaction_array = $stmt->fetchAll()) {
-            throw new Exception(("Невозможно получить массив данных"));
+            throw new Exception(("Failed to fetch inventory array"));
         }
 
         return $transaction_array;

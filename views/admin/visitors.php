@@ -12,7 +12,7 @@
 <div class="container">
     <div class="m-4">
         <div class="text-center m-4 text-white">
-            <h2>Посетители</h2>
+            <h2>Visitors</h2>
         </div>
 
         <div class="card-body">
@@ -26,7 +26,7 @@
 
                                 <div class="col">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a class="btn btn-danger" href="/"><i class="fa-solid fa-arrow-left"></i> Назад</a>
+                                        <a class="btn btn-danger" href="/"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
                                     </div>
                                 </div>
                             </div>
@@ -39,15 +39,15 @@
                                 <table class="table table-striped table-hover">
                                     <thead>
                                     <tr>
-                                        <th scope="col" class="lato-strong">Номер посетителя</th>
-                                        <th scope="col" class="lato-strong">Время входа</th>
-                                        <th scope="col" class="lato-strong">Время выхода</th>
+                                        <th scope="col" class="lato-strong">Visitor Id</th>
+                                        <th scope="col" class="lato-strong">Entry Date</th>
+                                        <th scope="col" class="lato-strong">Exit Date</th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
                                     <?php
-                                    //Показать все записи в таблице
+                                    //Display all articles in the table
                                     $visitorModel = new \models\VisitorModel();
                                     if ($visitors_array = $visitorModel->getAllDsc() ?? null) {
                                         foreach ($visitors_array as $visitors) {

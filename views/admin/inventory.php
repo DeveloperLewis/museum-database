@@ -12,7 +12,7 @@
 <div class="container">
     <div class="m-4">
         <div class="text-center m-4 text-white">
-            <h2>Инвентарь</h2>
+            <h2>Inventory Items</h2>
         </div>
 
         <div class="card-body">
@@ -23,7 +23,7 @@
                     <div id="articles-panel">
 
                         <?php
-                    
+                        //display that article success messages
                         if ($vars['success'] ?? null) {
                             showSuccess($vars['success']);
                         }
@@ -34,8 +34,8 @@
 
                                 <div class="col">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a class="btn btn-danger" href="/"><i class="fa-solid fa-arrow-left"></i> Назад</a>
-                                        <a class="btn btn-primary" href="/inventory/new">Добавить новый предмет</a>
+                                        <a class="btn btn-danger" href="/"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
+                                        <a class="btn btn-primary" href="/inventory/new">Add New Item</a>
                                     </div>
                                 </div>
                             </div>
@@ -48,22 +48,22 @@
                             <table class="table table-striped table-hover">
                                 <thead>
                                 <tr>
-                                    <th scope="col" class="lato-strong">Номер предмета</th>
-                                    <th scope="col" class="lato-strong">Название</th>
-                                    <th scope="col" class="lato-strong">Страна происхождения</th>
-                                    <th scope="col" class="lato-strong">Возраст</th>
-                                    <th scope="col" class="lato-strong">Стоимость</th>
-                                    <th scope="col" class="lato-strong">Дата получения</th>
-                                    <th scope="col" class="lato-strong">Местонахождение(номер комнаты)</th>
-                                    <th scope="col" class="lato-strong">Технический статус</th>
-                                    <th scope="col" class="lato-strong">Техническое обслуживание</th>
-                                    <th scope="col" class="lato-strong">Удалить</th>
+                                    <th scope="col" class="lato-strong">Item Id</th>
+                                    <th scope="col" class="lato-strong">Name</th>
+                                    <th scope="col" class="lato-strong">Origin Country</th>
+                                    <th scope="col" class="lato-strong">Age</th>
+                                    <th scope="col" class="lato-strong">Estimated Value</th>
+                                    <th scope="col" class="lato-strong">Acquired Date</th>
+                                    <th scope="col" class="lato-strong">Location Room</th>
+                                    <th scope="col" class="lato-strong">Maintenance Status</th>
+                                    <th scope="col" class="lato-strong">Repair</th>
+                                    <th scope="col" class="lato-strong">Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
                                 <?php
-                                //Показать все записи в таблице
+                                //Display all articles in the table
                                 $inventoryModel = new \models\InventoryModel();
                                 if ($inventory_array = $inventoryModel->getAllDsc() ?? null) {
                                     foreach ($inventory_array as $items) {
@@ -77,13 +77,13 @@
                                         echo "<td>" . $items["location_room"] . "</td>";
                                         echo "<td>" . $items["maintenance_status"] . "</td>";
 
-                                        //Кнопка журнала технического обслуживания
+                                        //Maintenance Logs Button
                                         echo '<form action="/maintenance" method="get">';
                                         echo '<input type="hidden" value="' . $items['item_id'] .'" name="id">';
                                         echo '<td><button class="btn btn-success" type="submit">Logs</button></td>';
                                         echo '</form>';
 
-                                        //Кнопка удаления 
+                                        //Delete button with form
                                         echo '<form action="/inventory/delete" method="post">';
                                         echo '<input type="hidden" value="' . $items['item_id'] .'" name="id">';
                                         echo '<td><button class="btn btn-danger" type="submit">X</button></td>';

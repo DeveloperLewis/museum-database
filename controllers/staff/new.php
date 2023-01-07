@@ -49,122 +49,122 @@ $controller->post(function() use ($controller) {
     $salary_errors = [];
     $employment_date_errors = [];
 
-    //Имя
+    //first name
     if (empty($_POST['first_name'])) {
-        $first_name_errors['empty'] = "Имя не может быть пустым полем";
+        $first_name_errors['empty'] = "The first name cannot be empty";
     }
 
     $first_name = $_POST['first_name'];
 
     if (!preg_match('/[A-z]/', $first_name)) {
-        $first_name_errors['special_chars'] = "Имя может содержать только буквы";
+        $first_name_errors['special_chars'] = "The first name can only contain letters";
     }
 
     if (strlen($first_name) > 50) {
-        $first_name_errors['max_length'] = "Имя должно быть короче 50 знаков";
+        $first_name_errors['max_length'] = "The first name must be less than 50 characters";
     }
 
 
 
-    //Фамилия
+    //last name
     if (empty($_POST['last_name'])) {
-        $last_name_errors['empty'] = "Фамилия не может быть пустым полем";
+        $last_name_errors['empty'] = "The last name cannot be empty";
     }
 
     $last_name = $_POST['last_name'];
 
     if (!preg_match('/[A-z]/', $last_name)) {
-        $last_name_errors['special_chars'] = "Фамилия может содержать только буквы";
+        $last_name_errors['special_chars'] = "The last name can only contain letters";
     }
 
     if (strlen($last_name) > 50) {
-        $last_name_errors['max_length'] = "Фамилия должна быть короче 50 знаков";
+        $last_name_errors['max_length'] = "The last name must be less than 50 characters";
     }
 
 
 
-    //Адрес
+    //address
     if (empty($_POST['address'])) {
-        $address_errors['empty'] = "Адрес не может быть пустым полем";
+        $address_errors['empty'] = "The address cannot be empty";
     }
 
     $address = $_POST['address'];
 
     if (!preg_match('/[A-z\d ]/', $address)) {
-        $address_errors['special_chars'] = "Адрес может содержать только буквы, цифры и пробелы";
+        $address_errors['special_chars'] = "The address can only contain letters, numbers and spaces";
     }
 
     if (strlen($address) > 300) {
-        $address_errors['max_length'] = "Адрес должен быть короче 50 знаков";
+        $address_errors['max_length'] = "The address must be less than 50 characters";
     }
 
 
 
-    //Телефон
+    //contact
     if (empty($_POST['contact_number'])) {
-        $contact_number_errors['empty'] = "Номер телефона не может быть пустым полем";
+        $contact_number_errors['empty'] = "The contact number cannot be empty";
     }
 
     $contact_number = $_POST['contact_number'];
 
     if (!preg_match('/[\d]/', $contact_number)) {
-        $contact_number_errors['special_chars'] = "Номер телефона может содержать только цифры";
+        $contact_number_errors['special_chars'] = "The contact number can only contain numbers";
     }
 
     if (strlen($contact_number) > 50) {
-        $contact_number_errors['max_length'] = "Номер телефона должен быть короче 50 знаков";
+        $contact_number_errors['max_length'] = "The contact number must be less than 50 characters";
     }
 
 
-    //Должность
+    //position
     if (empty($_POST['position'])) {
-        $position_errors['empty'] = "Должность не может быть пустым полем";
+        $position_errors['empty'] = "The position cannot be empty";
     }
 
     $position = $_POST['position'];
 
     if (!preg_match('/[A-z]/', $position)) {
-        $position_errors['special_chars'] = "Должность может содержать только буквы";
+        $position_errors['special_chars'] = "The position can only contain numbers";
     }
 
     if (strlen($position) > 50) {
-        $position_errors['max_length'] = "Должность должна быть короче 50 знаков";
+        $position_errors['max_length'] = "The position must be less than 50 characters";
     }
 
 
-    //Зарплата
+    //salary
     if (empty($_POST['salary'])) {
-        $salary_errors['empty'] = "Зарплата не может быть пустым полем";
+        $salary_errors['empty'] = "The salary cannot be empty";
     }
 
     $salary = $_POST['salary'];
 
     if (!preg_match('/[\d]/', $salary)) {
-        $salary_errors['special_chars'] = "Зарплата может содержать только цифры";
+        $salary_errors['special_chars'] = "The salary can only contain numbers";
     }
 
     if (strlen($salary) > 30) {
-        $salary_errors['max_length'] = "ИЗарплата должна быть короче 30 знаков";
+        $salary_errors['max_length'] = "The salary must be less than 30 characters";
     }
 
 
-    //Дата найма
+    //employment date
 
     if (empty($_POST['employment_date'])) {
-        $employment_date_errors['empty'] = "Дата найма не может быть пустым полем";
+        $employment_date_errors['empty'] = "The employment date cannot be empty";
     }
 
     $employment_date = $_POST['employment_date'];
 
     if (!preg_match('/[\d\-\/ ]/', $employment_date)) {
-        $employment_date_errors['special_chars'] = "Дата найма может содержать только цифры";
+        $employment_date_errors['special_chars'] = "The employment date can only contain numbers";
     }
 
     if (strlen($employment_date) > 20) {
-        $employment_date_errors['max_length'] = "Дата найма должна быть короче 20 знаков";
+        $employment_date_errors['max_length'] = "The employment date must be less than 20 characters";
     }
 
-    //Создание сессий
+    //create sessions
     if (!empty($first_name_errors)) {
         $_SESSION['first_name_errors'] = $first_name_errors;
     }
@@ -203,7 +203,7 @@ $controller->post(function() use ($controller) {
     $staffModel->create($first_name, $last_name, $address, $contact_number, $position, $salary, $employment_date);
     $staffModel->store();
 
-    $_SESSION['success'] = "Новый член персонала успешно добавлен в базу данных";
+    $_SESSION['success'] = "Successfully added a new staff member to the database";
 
     redirect('/staff');
 });

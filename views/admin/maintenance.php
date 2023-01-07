@@ -12,7 +12,7 @@
 <div class="container">
     <div class="m-4">
         <div class="text-center m-4 text-white">
-            <h2>Журнал технического обслуживания</h2>
+            <h2>Maintenance Logs</h2>
         </div>
 
         <div class="card-body">
@@ -29,8 +29,8 @@
 
                                 <div class="col">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a class="btn btn-danger" href="/inventory"><i class="fa-solid fa-arrow-left"></i> Назад</a>
-                                        <a class="btn btn-primary" href="/maintenance/new?id=<?= $_GET['id'] ?? null ?>">Добавить техническое обслуживание</a>
+                                        <a class="btn btn-danger" href="/inventory"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
+                                        <a class="btn btn-primary" href="/maintenance/new?id=<?= $_GET['id'] ?? null ?>">New Maintenance Log</a>
                                     </div>
                                 </div>
                             </div>
@@ -43,16 +43,16 @@
                                 <table class="table table-striped table-hover">
                                     <thead>
                                     <tr>
-                                        <th scope="col" class="lato-strong">Номер технического обслуживания</th>
-                                        <th scope="col" class="lato-strong">Номер персонала</th>
-                                        <th scope="col" class="lato-strong">Описание</th>
-                                        <th scope="col" class="lato-strong">Дата</th>
+                                        <th scope="col" class="lato-strong">Maintenance Id</th>
+                                        <th scope="col" class="lato-strong">Staff Id</th>
+                                        <th scope="col" class="lato-strong">Description</th>
+                                        <th scope="col" class="lato-strong">Date</th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
                                     <?php
-                                    //Показать все записи в таблице
+                                    //Display all articles in the table
                                     $maintenanceModel = new \models\MaintenanceModel();
                                     if ($maintenance_array = $maintenanceModel->getByItemIdDsc($_GET['id'] ?? null)) {
                                         if (is_array($maintenance_array)) {
