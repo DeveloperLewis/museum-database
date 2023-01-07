@@ -12,7 +12,7 @@
 <div class="container">
     <div class="m-4">
         <div class="text-center m-4 text-white">
-            <h2>Персонал</h2>
+            <h2>Staff Members</h2>
         </div>
 
         <?php
@@ -31,8 +31,8 @@
 
                                 <div class="col">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a class="btn btn-danger" href="/"><i class="fa-solid fa-arrow-left"></i> Назад</a>
-                                        <a class="btn btn-primary" href="/staff/new">Добавить нового члена персонала</a>
+                                        <a class="btn btn-danger" href="/"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
+                                        <a class="btn btn-primary" href="/staff/new">Add New Staff Member</a>
                                     </div>
                                 </div>
                             </div>
@@ -45,21 +45,21 @@
                                 <table class="table table-striped table-hover">
                                     <thead>
                                     <tr>
-                                        <th scope="col" class="lato-strong">Номер персонала</th>
-                                        <th scope="col" class="lato-strong">Имя</th>
-                                        <th scope="col" class="lato-strong">Фамилия</th>
-                                        <th scope="col" class="lato-strong">Адрес</th>
-                                        <th scope="col" class="lato-strong">Номер телефона</th>
-                                        <th scope="col" class="lato-strong">Должность</th>
-                                        <th scope="col" class="lato-strong">Зарплата</th>
-                                        <th scope="col" class="lato-strong">Дата найма</th>
-                                        <th scope="col" class="lato-strong">Удалить</th>
+                                        <th scope="col" class="lato-strong">Staff Id</th>
+                                        <th scope="col" class="lato-strong">First Name</th>
+                                        <th scope="col" class="lato-strong">Last Name</th>
+                                        <th scope="col" class="lato-strong">Address</th>
+                                        <th scope="col" class="lato-strong">Contact Number</th>
+                                        <th scope="col" class="lato-strong">Position</th>
+                                        <th scope="col" class="lato-strong">Salary</th>
+                                        <th scope="col" class="lato-strong">Employment Date</th>
+                                        <th scope="col" class="lato-strong">Delete</th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
                                     <?php
-                                    //Показать все записи в таблице
+                                    //Display all articles in the table
                                     $staffModel = new \models\StaffModel();
                                     if ($staff_array = $staffModel->getAllDsc() ?? null) {
                                         foreach ($staff_array as $staff) {
@@ -73,7 +73,7 @@
                                             echo "<td>" . $staff["salary"] . "</td>";
                                             echo "<td>" . $staff["employment_date"] . "</td>";
 
-                                            //Кнопка удаления
+                                            //Delete button with form
                                             echo '<form action="/staff/delete" method="post">';
                                             echo '<input type="hidden" value="' . $staff['staff_id'] .'" name="id">';
                                             echo '<td><button class="btn btn-danger" type="submit">X</button></td>';

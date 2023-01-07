@@ -24,7 +24,7 @@ $controller->post(function() {
         $success = $adminModel->authenticate();
     } catch (Exception $e) {
         error_log($e);
-        $_SESSION["errors"]["login"] = ["Электронная почта или пароль некорректны, повторите попытку."];
+        $_SESSION["errors"]["login"] = ["The password or email is incorrect, please try again."];
         redirect("/user/login");
     }
 
@@ -32,7 +32,7 @@ $controller->post(function() {
         $adminModel->get();
     } catch (Exception $e) {
         error_log($e);
-        $_SESSION["errors"]["login"] = ["Непредвиденная ошибка. Пожалуйста, свяжитесь с администрацией сайта"];
+        $_SESSION["errors"]["login"] = ["There was an internal error. Please contact site administrator"];
         redirect("/user/login");
     }
 

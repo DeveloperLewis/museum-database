@@ -6,7 +6,7 @@ $controller->post(function() {
         if ($success = $inventoryModel->delete($_POST['id'])) {
             $_SESSION['success'] = $success;
         } else {
-            $_SESSION['errors'] = ["Невозможно удалить элемент " . $_POST['id'] . ". Повторите попытку."];
+            $_SESSION['errors'] = ["Unable to delete item " . $_POST['id'] . ". Please try again."];
         }
         redirect("/inventory");
     }

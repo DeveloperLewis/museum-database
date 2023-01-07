@@ -4,7 +4,7 @@
 <body>
 <?php require_once('includes/nav.php'); ?>
 <div class="text-center text-white mt-5">
-    <h1>Ошибка 404, страница не найдена.</h1>
+    <h1>404, Page not found.</h1>
 </div>
 
 <?php require_once('includes/footer.php'); ?>

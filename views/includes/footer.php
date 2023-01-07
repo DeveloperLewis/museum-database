@@ -1,5 +1,5 @@
 <div class="footer text-center text-white bg-dark p-3 mt-2">
-    <small> © 2023 Национальный музей мировой истории</small>
+    <small> © 2022 The Vault of Micro Life and Small Cultures</small>
 </div>
 
 <script type="text/javascript"

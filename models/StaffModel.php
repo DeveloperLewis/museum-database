@@ -35,10 +35,10 @@ class StaffModel
         $stmt = $database->getPdo()->prepare("INSERT INTO staff (first_name, last_name, address, contact_number, position, salary, employment_date) VALUES (?,?,?,?,?,?,?);");
 
         if (!$stmt->execute([$this->first_name, $this->last_name, $this->address, $this->contact_number, $this->position, $this->salary, $this->employment_date])) {
-            throw new Exception("Невозможно сохранить данные в базе данных");
+            throw new Exception("Unable to store staff member in the database");
         };
 
-        return "Данные успешно сохранены в базе данных";
+        return "Successfully stored a staff member in the database";
     }
 
     public function getMaintainersById(): array {
@@ -46,7 +46,7 @@ class StaffModel
         $stmt = $database->getPdo()->prepare("SELECT staff_id FROM staff WHERE position = 'maintainer'");
 
         if (!$stmt->execute()) {
-            throw new Exception("Невозможно найти персонал по запросу");
+            throw new Exception("Unable to return maintainers in the staff table");
         }
 
         return $stmt->fetchAll();
@@ -57,11 +57,11 @@ class StaffModel
         $stmt = $database->getPdo()->prepare("SELECT * FROM staff ORDER BY staff_id DESC");
 
         if (!$stmt->execute()) {
-            throw new Exception("Невозможно выполнение команды");
+            throw new Exception("Failed to execute statement");
         }
 
         if (!$staff_array = $stmt->fetchAll()) {
-            throw new Exception(("Невозможно получить массив данных"));
+            throw new Exception(("Failed to fetch inventory array"));
         }
 
         return $staff_array;
@@ -72,10 +72,10 @@ class StaffModel
         $stmt = $database->getPdo()->prepare("DELETE FROM staff WHERE staff_id = ?");
 
         if (!$stmt->execute([$staff_id])) {
-            throw new Exception("Невозможно удалить предмет");
+            throw new Exception("Failed to delete item");
         }
 
-        return "Член персонала успешно удален";
+        return "Successfully deleted the staff member";
     }
 
     public function getById($id): array|string {
@@ -83,11 +83,11 @@ class StaffModel
         $stmt = $database->getPdo()->prepare("SELECT * FROM staff WHERE staff_id = ?");
 
         if (!$stmt->execute([$id])) {
-            throw new Exception("Невозможно выполнение команды");
+            throw new Exception("Failed to execute statement");
         }
 
         if (!$staff_array = $stmt->fetch()) {
-            return "Член персонала не найден";
+            return "Staff Member not found";
         }
 
         return $staff_array;
