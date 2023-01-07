@@ -28,9 +28,9 @@ class AdminsMigrations
         )");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to create admins table.");
+            throw new Exception("Невозможно создать таблицу админа.");
         }
-        return "Successfully created admins table.";
+        return "Таблица админа успешно создана.";
     }
 
     public function alterKeys(): string {
@@ -38,10 +38,10 @@ class AdminsMigrations
             ADD PRIMARY KEY (`admin_id`);");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to alter the admins table and make the admin_id the primary key.");
+            throw new Exception("Невозможно установить первичный ключ.");
         }
 
-        return "Successfully altered the primary key.";
+        return "Успешно установлен первичный ключ.";
     }
 
     public function alterAutoIncrement(): string {
@@ -49,9 +49,9 @@ class AdminsMigrations
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to alter the admins table and make the admin_id auto incrementing");
+            throw new Exception("Невозможно установить автоматическую инкрементацию");
         }
 
-        return "Successfully altered the admins table.";
+        return "Изменения успешно внесены в таблицу.";
     }
 }

@@ -28,46 +28,46 @@
                 <form action="/inventory/new" method="post">
                 <div class="row">
                     <div class="col-md-12">
-                        <label>Name</label>
+                        <label>Название</label>
                         <input type="text" class="form-control" name="name" value="">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-4">
-                        <label>Origin Country</label>
+                        <label>Страна происхождения</label>
                         <input type="text" class="form-control" name="origin_country" value="">
                     </div>
 
                     <div class="col-md-4">
-                        <label>Age</label>
+                        <label>Возраст</label>
                         <input type="text" class="form-control" name="age" value="">
                     </div>
 
                     <div class="col-md-4">
-                        <label>Estimated Value</label>
+                        <label>Стоимость</label>
                         <input type="text" class="form-control" name="estimated_value" value="">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-4">
-                        <label>Acquired Date</label>
+                        <label>Дата получения</label>
                         <input type="date" class="form-control" name="acquired_date" value="">
                     </div>
 
                     <div class="col-md-4">
-                        <label>Location Room</label>
+                        <label>Местонахождение(номер комнаты)</label>
                         <input type="text" class="form-control" name="location_room" value="">
                     </div>
 
                     <div class="col-md-4">
-                        <label>Maintenance Status</label>
+                        <label>Технический статус</label>
                         <input type="text" class="form-control" name="maintenance_status" value="">
                     </div>
                 </div>
-                    <button class="btn btn-primary mt-2 float-end" type="submit">Add</button>
-                    <a class="btn btn-danger mt-2 float-start" href="/inventory">Cancel</a>
+                    <button class="btn btn-primary mt-2 float-end" type="submit">Добавить</button>
+                    <a class="btn btn-danger mt-2 float-start" href="/inventory">Удалить</a>
                 </form>
             </div>
             <div class="col-md-3">

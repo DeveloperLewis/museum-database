@@ -4,7 +4,7 @@ namespace classes\middleware;
 
 class General
 {
-    //Stops session hijacking
+    //Останавливает захват сеанса
     private function verifySession(): void {
         if (isset($_SESSION["admin"])) {
             if ($_SERVER['REMOTE_ADDR'] != $_SESSION["admin"]["ip"]) {
@@ -24,11 +24,9 @@ class General
         }
     }
 
-    //Check if their session is valid and that they're logged in
+    //Проверяет, вошел ли пользователь
     public function authenticateUser(): void {
-        //Check for session hijacking
         $this->verifySession();
-        //Check if session is still available
         if (!isLoggedIn()) {
             redirect("/");
         }

@@ -7,73 +7,73 @@ use Exception;
 
 class User
 {
-    //Checks validations for the username and then sends back an empty array or with errors
+    //Проверка правильности данных вводимых пользователем
     public function validateUsername($username): array
     {
         $username_errors = [];
 
         if (strlen($username) < 3) {
-            $username_errors['min_size'] = "Your name must be greater than 3 character.";
+            $username_errors['min_size'] = "Имя должно быть длиннее 3 знаков.";
         };
 
         if (strlen($username) > 30) {
-            $username_errors['max_size'] = "Your name must be less than 30 characters.";
+            $username_errors['max_size'] = "Имя не должно превышать 30 знаков.";
         };
 
         if (preg_match('/[^A-Za-z\d]/', $username)) {
-            $username_errors['special_characters'] = "Your name cannot contain any special characters, numbers or spaces.";
+            $username_errors['special_characters'] = "Имя не должно содержать специальных знаков, цифр или пробелов.";
         };
 
         return $username_errors;
     }
 
-    //Checks validations for the password and then sends back an empty array or with errors
+    //Проверка правильности пароля
     public function validatePassword($password, $repeat_password): array
     {
         $password_errors = [];
 
         if ($password != $repeat_password) {
-            $password_errors['match'] = "Password does not match repeat password";
+            $password_errors['match'] = "Пароли не совпадают";
         }
 
         if (strlen($_POST['password']) < 8) {
-            $password_errors['min_size'] = "Password must be greater than 8 characters";
+            $password_errors['min_size'] = "Пароль должен быть длиннее 8 знаков";
         };
 
         if (strlen($_POST['password']) > 128) {
-            $password_errors['min_size'] = "Password must be less than 128";
+            $password_errors['min_size'] = "Пароль не должен превышать 128 знаков";
         };
 
         if (preg_match('/[^A-Za-z\d@$!%*?&;:^#]/', $_POST['password'])) {
-            $password_errors['invalid_characters'] = "Password can only contain letters, numbers and @$!%*?&;:&%^# special characters";
+            $password_errors['invalid_characters'] = "Пароль может содержать только буквы, цифры и следующие специальные знаки: @$!%*?&;:&%^#";
         };
 
         if (!preg_match('/\d+/', $_POST['password'])) {
-            $password_errors['number'] = "Password must contain at least 1 number";
+            $password_errors['number'] = "Пароль должен содержать хотя бы одну цифру";
         };
 
         if (!preg_match('/[A-Z]+/', $_POST['password'])) {
-            $password_errors['uppercase'] = "Password must contain at least 1 uppercase letter";
+            $password_errors['uppercase'] = "Пароль должен содержать хотя бы 1 заглавную букву";
         };
 
         if (!preg_match('/[a-z]+/', $_POST['password'])) {
-            $password_errors['lowercase'] = "Password must contain at least 1 lowercase letter";
+            $password_errors['lowercase'] = "Пароль должен содержать хотя бы одну строчную букву";
         };
 
         if (!preg_match('/[@$!%*?&;:^#]/', $_POST['password'])) {
-            $password_errors['special_characters'] = "Password must contain at least 1 special character: @$!%*?&;:&%^#";
+            $password_errors['special_characters'] = "Пароль должен содержать хотя бы один специальный знак: @$!%*?&;:&%^#";
         };
 
         return $password_errors;
     }
 
-    //Return whether the username is unique within the database.
+    //Проверка оригинальности имени пользователя
     public function isUsernameUnique($username): bool {
         $database = new Database();
         $stmt = $database->getPdo()->prepare("SELECT username FROM admins WHERE username = ?");;
 
         if (!$stmt->execute([$username])) {
-            throw new Exception("Failed to execute the statement to check if username is unique.");
+            throw new Exception("Невозможно проверить оригинальность имени пользователя.");
         }
 
         if (empty($stmt->fetch())) {

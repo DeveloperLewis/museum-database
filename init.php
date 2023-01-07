@@ -2,7 +2,7 @@
 
 $env = new \classes\server\Env();
 
-//Create initial Database
+//Создание базы данных
 $host = $env->server;
 $username = $env->database_username;
 $password = $env->database_password;
@@ -13,7 +13,6 @@ try {
     die("DB ERROR: " . $e->getMessage());
 }
 
-//Create Database
 try {
     $stmt = $pdo->prepare("CREATE DATABASE IF NOT EXISTS " . $env->db);
     if (!$stmt->execute()) {
@@ -23,7 +22,7 @@ try {
     error_log($e);
 }
 
-//Admins Table
+//Таблица админа
 $admins_migrations = new migrations\AdminsMigrations();
 
 try {
@@ -34,7 +33,6 @@ try {
     error_log($e);
 }
 
-//Admin Starter Account
 $authenticate = new \classes\authentication\User();
 if ($authenticate->isUsernameUnique($env->admin_username)) {
     $adminModel = new \models\AdminModel();
@@ -49,7 +47,7 @@ if ($authenticate->isUsernameUnique($env->admin_username)) {
 
 
 
-//Inventory Table
+//Таблица инвентаря
 $inventory_migrations = new \migrations\InventoryMigrations();
 
 try {
@@ -60,7 +58,7 @@ try {
     error_log($e);
 }
 
-//Maintenance Table
+//Таблица технического обслуживания
 $maintenance_migrations = new \migrations\MaintenanceMigrations();
 
 try {
@@ -71,7 +69,7 @@ try {
     error_log($e);
 }
 
-//Staff Table
+//Таблица персонала
 $staff_migrations = new \migrations\StaffMigrations();
 
 try {
@@ -82,7 +80,7 @@ try {
     error_log($e);
 }
 
-//Transactions Table
+//Таблица транзакций
 $transactions_migrations = new \migrations\TransactionsMigrations();
 
 try {
@@ -93,7 +91,7 @@ try {
     error_log($e);
 }
 
-//Visitors Table
+//Таблица посетителей
 $visitors_table = new \migrations\VisitorsMigrations();
 
 try {

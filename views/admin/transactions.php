@@ -12,7 +12,7 @@
 <div class="container">
     <div class="m-4">
         <div class="text-center m-4 text-white">
-            <h2>Transactions</h2>
+            <h2>Транзакции</h2>
         </div>
 
         <div class="card-body">
@@ -26,7 +26,7 @@
 
                                 <div class="col">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a class="btn btn-danger" href="/"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
+                                        <a class="btn btn-danger" href="/"><i class="fa-solid fa-arrow-left"></i> Назад</a>
                                     </div>
                                 </div>
                             </div>
@@ -39,18 +39,18 @@
                                 <table class="table table-striped table-hover">
                                     <thead>
                                     <tr>
-                                        <th scope="col" class="lato-strong">Transaction Id</th>
-                                        <th scope="col" class="lato-strong">Type</th>
-                                        <th scope="col" class="lato-strong">Category</th>
-                                        <th scope="col" class="lato-strong">Payment Method</th>
-                                        <th scope="col" class="lato-strong">Amount</th>
-                                        <th scope="col" class="lato-strong">Date</th>
+                                        <th scope="col" class="lato-strong">Номер транзакции</th>
+                                        <th scope="col" class="lato-strong">Вид</th>
+                                        <th scope="col" class="lato-strong">Категория</th>
+                                        <th scope="col" class="lato-strong">Метод оплаты</th>
+                                        <th scope="col" class="lato-strong">Количество</th>
+                                        <th scope="col" class="lato-strong">Дата</th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
                                     <?php
-                                    //Display all articles in the table
+                                    //Показать все записи в таблице
                                     $transactionModel = new \models\TransactionModel();
                                     if ($transaction_array = $transactionModel->getAllDsc() ?? null) {
                                         foreach ($transaction_array as $transactions) {

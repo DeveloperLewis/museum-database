@@ -33,9 +33,9 @@ class StaffMigrations
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to create staff table.");
+            throw new Exception("Невозможно создать таблицу персонала.");
         }
-        return "Successfully created staff table.";
+        return "Таблица персонала успешно создана.";
     }
 
     public function alterKeys(): string {
@@ -43,10 +43,10 @@ class StaffMigrations
   ADD PRIMARY KEY (`staff_id`);");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to alter the staff table and update primary key");
+            throw new Exception("Невозможно установить первичный ключ");
         }
 
-        return "Successfully altered the primary key";
+        return "Успешно установлен первичный ключ";
     }
 
     public function alterAutoIncrement(): string {
@@ -54,10 +54,10 @@ class StaffMigrations
   MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT;");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to alter the staff table and make the staff_id auto incrementing");
+            throw new Exception("Невозможно установить автоматическую инкрементацию");
         }
 
-        return "Successfully altered the staff table.";
+        return "Изменения успешно внесены в таблицу.";
     }
 
     public function seed($amount): void {

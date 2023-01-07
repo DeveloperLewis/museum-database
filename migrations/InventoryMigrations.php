@@ -33,9 +33,9 @@ class InventoryMigrations
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to create inventory table.");
+            throw new Exception("Невозможно создать таблицу инвентаря.");
         }
-        return "Successfully created inventory table.";
+        return "Таблица инвентаря успешно создана.";
     }
 
     public function alterKeys(): string {
@@ -43,10 +43,10 @@ class InventoryMigrations
   ADD PRIMARY KEY (`item_id`);");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to alter the inventory table and make the item_id the primary key.");
+            throw new Exception("Невозможно установить первичный ключ.");
         }
 
-        return "Successfully altered the primary key.";
+        return "Успешно установлен первичный ключ.";
     }
 
     public function alterAutoIncrement(): string {
@@ -54,10 +54,10 @@ class InventoryMigrations
   MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT;");
 
         if (!$stmt->execute()) {
-            throw new Exception("Failed to alter the inventory table and make the item_id auto incrementing");
+            throw new Exception("Невозможно установить автоматическую инкрементацию");
         }
 
-        return "Successfully altered the inventory table.";
+        return "Изменения успешно внесены в таблицу.";
     }
 
     public function seed($amount): void {
