@@ -60,7 +60,7 @@ class TransactionsMigrations
 
     public function seed($amount): void {
         $transactionModel = new TransactionModel();
-        $faker = \Faker\Factory::create();
+        $faker = \Faker\Factory::create('ru_RU');
 
         $payment_types = getList("payment_types");
         $payment_categories = getList("payment_categories");

@@ -63,7 +63,7 @@ class MaintenanceMigrations
         $maintenanceModel = new MaintenanceModel();
         $staffModel = new StaffModel();
         $inventoryModel = new InventoryModel();
-        $faker = \Faker\Factory::create();
+        $faker = \Faker\Factory::create('ru_RU');
 
         $maintenance = getList("maintenance");
         $maintainers = $staffModel->getMaintainersById();

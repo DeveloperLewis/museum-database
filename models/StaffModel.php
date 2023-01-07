@@ -43,7 +43,7 @@ class StaffModel
 
     public function getMaintainersById(): array {
         $database = new Database();
-        $stmt = $database->getPdo()->prepare("SELECT staff_id FROM staff WHERE position = 'maintainer'");
+        $stmt = $database->getPdo()->prepare("SELECT staff_id FROM staff WHERE position = 'Техник'");
 
         if (!$stmt->execute()) {
             throw new Exception("Невозможно найти персонал по запросу");

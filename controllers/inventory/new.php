@@ -50,23 +50,23 @@ $controller->post(function() use ($controller) {
     $location_room_errors = [];
     $maintenance_status_errors = [];
 
-    //Имя
+    //Название
     if (empty($_POST['name'])) {
-        $name_errors['empty'] = "Имя не может быть пустым полем";
+        $name_errors['empty'] = "Название не может быть пустым полем";
     }
 
     $name = $_POST['name'];
 
     if (strlen($name) > 100) {
-        $name_errors['max_size'] = "Имя не может содержать более 100 знаков";
+        $name_errors['max_size'] = "Название не может содержать более 100 знаков";
     }
 
     if (!preg_match('/[A-z ]/', $name)) {
-        $name_errors['characters'] = "Имя может содержать только буквы и пробелы.";
+        $name_errors['characters'] = "Название может содержать только буквы и пробелы.";
     }
 
 
-    //Страна
+    //Страна происхождения
     if (empty($_POST['origin_country'])) {
         $origin_country_errors['empty'] = "Страна не может быть пустым полем";
     }

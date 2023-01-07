@@ -58,7 +58,7 @@ class VisitorsMigrations
 
     public function seed($amount): void {
         $visitorModel = new VisitorModel();
-        $faker = \Faker\Factory::create();
+        $faker = \Faker\Factory::create('ru_RU');
 
         for ($i = 0; $i < $amount; $i++) {
             $entryDate = $faker->date();

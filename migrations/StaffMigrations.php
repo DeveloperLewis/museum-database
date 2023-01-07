@@ -62,7 +62,7 @@ class StaffMigrations
 
     public function seed($amount): void {
         $staffModel = new StaffModel();
-        $faker = \Faker\Factory::create();
+        $faker = \Faker\Factory::create('ru_RU');
 
         $positions = getList("positions");
 

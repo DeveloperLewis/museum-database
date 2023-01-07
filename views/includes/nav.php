@@ -13,11 +13,11 @@
                 <?php
                     if (isLoggedIn()) {
                         echo '<li class="nav-item text-center">';
-                        echo    '<a class="nav-link" href="/inventory">Inventory</a>';
+                        echo    '<a class="nav-link" href="/inventory">Инвентарь</a>';
                         echo '</li>';
 
                         echo '<li class="nav-item text-center">';
-                        echo    '<a class="nav-link" href="/transactions">Transactions</a>';
+                        echo    '<a class="nav-link" href="/transactions">Транзакции</a>';
                         echo '</li>';
                     }
                 ?>
@@ -29,20 +29,20 @@
                 <?php
                     if (isLoggedIn()) {
                         echo '<li class="nav-item text-center">';
-                        echo    '<a class="nav-link" href="/staff">The Staff</a>';
+                        echo    '<a class="nav-link" href="/staff">Персонал</a>';
                         echo '</li>';
 
                         echo '<li class="nav-item text-center">';
-                        echo    '<a class="nav-link" href="/visitors">Visitors</a>';
+                        echo    '<a class="nav-link" href="/visitors">Посетители</a>';
                         echo '</li>';
 
                         echo '<li class="nav-item text-center">';
-                        echo    '<a class="nav-link" href="/user/logout">Logout</a>';
+                        echo    '<a class="nav-link" href="/user/logout">Выход</a>';
                         echo '</li>';
 
                     } else {
                         echo '<li class="nav-item text-center">';
-                        echo    '<a class="nav-link" href="/user/login">Login</a>';
+                        echo    '<a class="nav-link" href="/user/login">Вход</a>';
                         echo '</li>';
                     }
                 ?>

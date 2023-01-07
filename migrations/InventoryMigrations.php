@@ -62,7 +62,7 @@ class InventoryMigrations
 
     public function seed($amount): void {
         $invModel = new InventoryModel();
-        $faker = \Faker\Factory::create();
+        $faker = \Faker\Factory::create('ru_RU');
 
         $items = getList("items");
         $maintenance = getList("maintenance");
